@@ -1,5 +1,5 @@
 #include "Interface.hpp" //Interface class
-#include <locale.h> //Used to set language type
+#include <locale.h> //Used to set language characters
 
 int main(void) {
 	
