@@ -30,10 +30,10 @@ void Trainer::SetMoney(int money)
 //Changes the color of health bar
 void Trainer::SetHealthBarColor(int R, int G, int B, int A)
 {
-	if (WriteProcessMemory(GTA_SA, (LPVOID)Trainer::TRAINER_RED, &R, sizeof(R), NULL))
-	if (WriteProcessMemory(GTA_SA, (LPVOID)Trainer::TRAINER_GREEN, &G, sizeof(G), NULL))
-	if (WriteProcessMemory(GTA_SA, (LPVOID)Trainer::TRAINER_BLUE, &B, sizeof(B), NULL))
-	if (WriteProcessMemory(GTA_SA, (LPVOID)Trainer::TRAINER_ALPHA, &A, sizeof(A), NULL))
+	if (WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_RED, &R, sizeof(R), NULL))
+	if (WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_GREEN, &G, sizeof(G), NULL))
+	if (WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_BLUE, &B, sizeof(B), NULL))
+	if (WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_ALPHA, &A, sizeof(A), NULL))
 	
 	//it will write all the memories, if the previously won't return an error value.
 }
