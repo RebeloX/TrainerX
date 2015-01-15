@@ -69,18 +69,6 @@ void Trainer::SetWantedLevel(int level)
 	
 }
 
-void Trainer::SetWantedLevel(int level)
-{
-	int stat = WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_WANTED, &level, (DWORD)sizeof(level), NULL);
-
-	if (stat > 0){
-		std::clog << "Sucesso ao escrever na memoria com valor: " << level << std::endl;
-	}
-	else {
-		std::cerr << "Ocorreu algo inesperado, tente novamente." << std::endl;
-	}
-}
-
 /* Future functions
 void Trainer::SetX(double pos)
 {
