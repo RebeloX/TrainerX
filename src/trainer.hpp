@@ -31,6 +31,7 @@ public:
 	void SetMoney(int money);
 	void SetArmor(float armor);
 	void SetWantedLevel(int level);
+	void SetHealthBarColor(int R, int G, int B, int A);
 	/*
 	void SetX(double pos);
 	void SetY(double pos);
