@@ -1,3 +1,5 @@
+#pragma once
+
 #include "MemoryHandler.hpp" //MemoryHandler class
 
 class Trainer //trainer class, resposable for the cheats itself
