@@ -2,15 +2,14 @@
 
 void Trainer::SetLife(float life) //setlife function
 {
-  //write process memory with the new value
+  	//write process memory with the new value
 	int stat = WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_LIFE, &life, (DWORD)sizeof(life), NULL);
 
-	if (stat > 0){ //if it success it says this
-		std::clog << "Sucesso ao escrever na memoria com valor: " << life << std::endl;
-	}
-	else { //if not it says another thing
+	if (stat <= 0){ //if it success it says this
 		std::cerr << "Ocorreu algo inesperado, tente novamente." << std::endl;
+		return;
 	}
+	std::clog << "Sucesso ao escrever na memoria com valor: " << life << std::endl;
 }
 
 //same thing as life
@@ -18,12 +17,11 @@ void Trainer::SetMoney(int money)
 {
 	int stat = WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_MONEY, &money, (DWORD)sizeof(money), NULL);
 
-	if (stat > 0){
-		std::clog << "Sucesso ao escrever na memoria com valor: " << money << std::endl;
-	}
-	else {
+	if (stat <= 0){
 		std::cerr << "Ocorreu algo inesperado, tente novamente." << std::endl;
+		return;
 	}
+	std::clog << "Sucesso ao escrever na memoria com valor: " << money << std::endl;
 }
 
 //Entries: Red, Green, Blue, Alpha.
@@ -49,24 +47,23 @@ void Trainer::SetArmor(float armor)
 	//same thing as the life, it writes a new value to the memory
 	int stat = WriteProcessMemory(Trainer::memory.hProc, (LPVOID)address, &armor, (DWORD)sizeof(armor), NULL);
 
-	if (stat > 0){
-		std::clog << "Sucesso ao escrever na memoria com valor: " << armor << std::endl;
-	}
-	else {
+	if (stat <= 0){
 		std::cerr << "Ocorreu algo inesperado, tente novamente." << std::endl;
+		return;
 	}
+
+	std::clog << "Sucesso ao escrever na memoria com valor: " << armor << std::endl;
 }
 void Trainer::SetWantedLevel(int level)
 {
 	int stat = WriteProcessMemory(Trainer::memory.hProc, (LPVOID)Trainer::TRAINER_WANTED, &level, (DWORD)sizeof(level), NULL);
 	
-	if (stat > 0){
-		std::clog << "Sucesso ao escrever na memoria com valor: " << level << std::endl;
-	}
-	else {
+	if (stat <= 0){
 		std::cerr << "Ocorreu algo inesperado, tente novamente." << std::endl;
+		return;
 	}
-	
+
+	std::clog << "Sucesso ao escrever na memoria com valor: " << level << std::endl;
 }
 
 /* Future functions
