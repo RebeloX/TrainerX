@@ -1,3 +1,5 @@
+#pragma once // Just includes once this file.
+
 #include <Windows.h>
 #include <cstdio>
 #include <iostream>
