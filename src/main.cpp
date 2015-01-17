@@ -1,7 +1,7 @@
 #include "Interface.hpp" //Interface class
 #include <locale.h> //Used to set language characters
 
-int main(void) {
+int main(int argc, char **argv) { // Even if we don't use it, we should declare them, just for a better look.(Performance will be the same)
 	
 	Interface inter;
 
@@ -12,5 +12,5 @@ int main(void) {
 		Sleep(5000); //Sleeps a while because it has too.
 		inter.ShowMenu(); //Show the menu (there isn't any menu yet)
 	}
-	return 0; //returns 0 when closing.
+	return 0; //returns 0(SUCCESS).
 }
