@@ -1,3 +1,5 @@
+#pragma once
+
 #include "trainer.hpp" //includes the Trainer Class
 #include <stdio.h> //Includes stidio functions
 #include <string> //Includes std::string functions
