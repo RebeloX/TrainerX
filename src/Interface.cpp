@@ -1,62 +1,73 @@
-#include "Interface.hpp" //Interface Class defenition
+#include "Interface.hpp"
 
-void Interface::Start() //Start function
+void Interface::Start()
 {
-		printf("A inicializar o programa.."); //Starting the program
-		if (!trainer.memory.InitializeMemoryHandler())  //Initialize the Memory Handler and verifys if it failed
+	/*
+		printf(" _____          _               __  __\n");
+		printf("|_   _| __ __ _(_)_ __   ___ _ _\ \/ /\n");
+		printf("  | || '__/ _` | | '_ \ / _ \ '__\  / \n");
+		printf("  | || | | (_| | | | | |  __/ |  /  \ \n");
+		printf("  |_||_|  \__,_|_|_| |_|\___|_| /_/\_\\n");
+		printf("\n\n");*/
+		printf("Seja bem vindo ao TrainerX, com este programa você poderá alterar \"valores do Grand Theft Auto San Andreas\n");
+		printf("Utilizamos a manipulação de endereços de memória para alterar os valores, você pode ver o programa no GitHub.");
+		printf("Github: www.github.com\\TrainerX\n ");
+		printf("Existem 3 coisas possíveis de se mudarem, vida, dinheiro e armadura, basta só escrever uma destas, tambem pode escrever sair para sair.");
+		printf("\n");
+		printf("A inicializar o programa..");
+		if (!trainer.memory.InitializeMemoryHandler())
 		{
-			printf("nÃ£o foi possÃ­vel iniciar!"); //It wasn't possible to start, probably the program is closed
-			Interface::Close(); //Close the program
+			printf("não foi possível iniciar!");
+			Interface::Close();
 		}
 }
 
-void Interface::ShowMenu() //Show function
+void Interface::ShowMenu()
 {
-	system("cls"); //clear the screen
-	printf("O que deseja alterar? "); //What you want to change?
-	std::cin >> Interface::input; //Gets the user input
-	Interface::ProcessInput(); //Process the user Input
+	system("cls");
+	printf("O que deseja alterar? ");
+	std::cin >> Interface::input;
+	Interface::ProcessInput();
 }
 
 
 int Interface::ProcessInput()
 {
-	if (Interface::input == "vida") //health cheat
+	if (Interface::input == "vida")
 	{
-	  //this is a test version, it was created to get the actual player health.
 		float value = 0;
 		ReadProcessMemory(Interface::trainer.memory.hProc, (LPCVOID)Interface::trainer.TRAINER_LIFE, &value, sizeof(value), 0);
-    //end
-    
-		system("cls"); //clears the screen
-		std::cout << "Valor atual: " << value << std::endl; //actual player health, referd on top /\
-		printf("Novo valor: "); //New value
-		std::cin >> value; //gets the new value
-		trainer.SetLife(value); //Sets the new value using the trainer class
 
-	} else if (Interface::input == "dinheiro") { //money cheat
-		int value; //value
-		system("cls"); //clears the screen
-		
-		printf("Novo valor: "); //New value
-		std::cin >> value; //gets the new value
-		trainer.SetMoney(value); //sets the new value using the trainer class
-	}else if (Interface::input == "armadura") { //armor
-		float  value; //value
-		system("cls"); //clears the screen
+		system("cls");
+		std::cout << "Valor atual: " << value << std::endl;
+		printf("Novo valor: ");
+		std::cin >> value;
+		trainer.SetLife(value);
 
-		printf("Novo valor: "); //New value
-		std::cin >> value; //gets the new value
-		trainer.SetArmor(value); //sets the new value using the trainer class
-	}else if (Interface::input == "sair") { //exit
-		Interface::Close(); //Close the program
+	} else if (Interface::input == "dinheiro") {
+		int value;
+		system("cls");
+		printf("Novo valor: ");
+		std::cin >> value;
+		trainer.SetMoney(value);
+	}else if (Interface::input == "armadura") {
+		float  value;
+		system("cls");
+
+
+		printf("Novo valor: ");
+		std::cin >> value;
+		trainer.SetArmor(value);
+	}else if (Interface::input == "sair") {
+		Interface::Close();
 	}
 	return 1;
 }
 
-void Interface::Close() //Close function
+void Interface::Close()
 {
-	this->opened = false; //sets the opened variable to false
+	this->opened = false;
+	
 }
 
-bool Interface::IsOpen(){ return opened; } //gets the opened variable value
+bool Interface::IsOpen(){ return opened; }
